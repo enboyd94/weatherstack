@@ -1,0 +1,35 @@
+#Build and run
+docker build -t my-app .
+docker run my-app
+
+#Build with Dockerfile
+docker build -f src/Dockerfile -t my-app .
+
+#Run with environment files and interactive terminal
+docker run --env-file .env -it my-app
+#Or manually call the API key
+docker run -e API_KEY={your-api-ley} -it my-app
+
+#View data inside a container
+cat your-file.log
+#Pull the data out of the Docker Container
+docker cp {your-docker-container-id}:/my_code/data ./
+
+######### Docker commands ########
+#List containers
+docker ps -a
+#List images
+docker images
+#Delete an image
+docker rmi {your-docker-image}
+#Force delete (if there are any active containers)
+docker rmi -f {your-docker-image}
+#Remove unused images
+docker image prune
+#Remove all unused images, containers, volumnes, whatever
+docker system prune -a
+
+
+
+
+
